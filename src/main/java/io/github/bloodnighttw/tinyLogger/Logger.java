@@ -10,7 +10,7 @@ public class Logger {
     private final String format = "[%s][%s][%s]:%s\n";
     private final String INFO = TextColor.GREEN_BOLD+"INFO"+TextColor.RESET;
     private final String WARM = TextColor.YELLOW_BOLD+"WARM"+TextColor.RESET;
-    private final String ERROR = "ERROR";
+    private final String ERROR = TextColor.RED_BOLD+"ERROR"+TextColor.RESET;
     private final String DEBUG = TextColor.CYAN_BOLD+"DEBUG"+TextColor.RESET;
     private final boolean debug;
 

@@ -54,10 +54,9 @@ class LoggerFactoryTest {
 
     @Test
     public void loggerError(){
-        Logger logger = LoggerFactory.getLogger("Test",false);
-        logger.debug("test case #5");
-
-        assertTrue(errContent.toString().equals("[Test][ERROR]:test case #5\n"));
+        Logger logger = LoggerFactory.getLogger("Test",true);
+        logger.error("t");
+        assertTrue(errContent.toString().contains("[Test]["+TextColor.RED_BOLD+"ERROR"+TextColor.RESET+"]:t\n"));
     }
 
 
