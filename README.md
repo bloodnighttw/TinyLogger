@@ -1,4 +1,5 @@
-# TinyLogger
+# TinyLogger 
+[![Java CI with Gradle](https://github.com/bloodnighttw/TinyLogger/actions/workflows/gradle.yml/badge.svg)](https://github.com/bloodnighttw/TinyLogger/actions/workflows/gradle.yml)
 Still in development.
 
 ### What is it?
