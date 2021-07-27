@@ -45,4 +45,5 @@ The major usage of `` logger.error()`` is almost as same as `` logger.info()`` a
 
 The major usage of `` logger.debug()`` is almost as same as `` logger.info()`` and ``logger.warm()`` , but it only print when DEBUG MODE is True.
 
+NOTE That when debug mode is disable,it will generate log file.
 
