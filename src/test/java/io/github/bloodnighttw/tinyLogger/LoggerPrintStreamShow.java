@@ -6,10 +6,12 @@ class LoggerPrintStreamShow {
 
     @Test
     public void printStreamTest(){
-        System.setOut(new LoggerPrintStream(System.out));
+        LoggerFactory.installLogger(true,true);
         System.out.println("hello");
-        System.out.println("si");
+        System.out.print("hello");
         System.out.println(1);
+        System.out.print(1);
+        System.out.println(true);
     }
 
 }

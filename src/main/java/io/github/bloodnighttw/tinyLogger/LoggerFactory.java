@@ -1,14 +1,12 @@
 package io.github.bloodnighttw.tinyLogger;
 
-import sun.rmi.runtime.Log;
-
 public final class LoggerFactory {
 
     /*  TODO (ESSENTIAL)
-     *  1.Logger with different mode
+     *  1.Logger with different mode [DONE]
      *  2.Log File
-     *  3.Color text
-     *  4.Group
+     *  3.Color text [DONE]
+     *  4.Group [DONE]
      *
      *  Text Field:
      *      [YYYY/MM/DD HH:mm:ss][$GroupName][$Type]:$Content\n
@@ -26,19 +24,20 @@ public final class LoggerFactory {
     private static boolean debug;
     private static boolean logfile;
 
-    public static void installLogger(boolean debug,boolean logfile){
+    public static void installLogger(boolean debug2,boolean logfile1){
         if(hasInstalled){
             logger.error("TinyLogger has been installed");
             return;
         }
 
+        debug = debug2;
+        logfile = logfile1;
         hasInstalled = true;
         System.setOut(new LoggerPrintStream(System.out));
-        logger = LoggerFactory.getLogger("TinyLogger",debug);
+        logger = LoggerFactory.getLogger("TinyLogger");
     }
 
-    public static Logger getLogger(String groupName,boolean debug){
-
+    public static Logger getLogger(String groupName){
         return new Logger(groupName,debug);
     }
 

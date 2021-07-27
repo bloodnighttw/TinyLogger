@@ -6,11 +6,13 @@ import java.util.Locale;
 public class LoggerPrintStream extends PrintStream {
 
     private final PrintStream originalPrintStream;
-    private final Logger logger = LoggerFactory.getLogger("STDOUT",true);
+    private final Logger logger;
+
 
     public LoggerPrintStream(PrintStream originalPrintStream1) {
         super(originalPrintStream1);
         this.originalPrintStream = originalPrintStream1;
+        logger = LoggerFactory.getLogger("STDOUT");
     }
 
     @Override
