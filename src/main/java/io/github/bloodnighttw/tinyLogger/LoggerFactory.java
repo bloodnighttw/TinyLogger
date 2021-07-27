@@ -38,6 +38,7 @@ public final class LoggerFactory {
     }
 
     public static Logger getLogger(String groupName){
+        //logger.info(String.valueOf(debug));
         return new Logger(groupName,debug);
     }
 

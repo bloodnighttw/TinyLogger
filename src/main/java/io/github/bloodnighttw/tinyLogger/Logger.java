@@ -21,9 +21,11 @@ public class Logger {
     }
 
     public void debug(String st){
+
         String DEBUG = TextColor.CYAN_BOLD + "DEBUG" + TextColor.RESET;
         if(debug)
             System.out.printf(format,simpleDateFormat.format(new Date()),groupName, DEBUG,st);
+
 
     }
 

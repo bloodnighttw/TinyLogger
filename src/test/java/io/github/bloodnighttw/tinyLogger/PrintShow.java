@@ -6,7 +6,7 @@ public class PrintShow {
 
     @Test
     void print(){
-        LoggerFactory.installLogger(true,false);
+        LoggerFactory.installLogger(false,false);
         Logger logger = LoggerFactory.getLogger("Test");
         logger.info("test case #1");
         logger.warm("test case #2");
