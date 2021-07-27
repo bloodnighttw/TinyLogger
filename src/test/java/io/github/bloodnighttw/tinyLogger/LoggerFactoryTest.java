@@ -49,7 +49,6 @@ class LoggerFactoryTest {
     public void loggerDebugFalse(){
         Logger logger = LoggerFactory.getLogger("Test",false);
         logger.debug("test case #4");
-
         assertTrue(outContent.toString().equals(""));
     }
 
