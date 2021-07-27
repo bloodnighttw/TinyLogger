@@ -20,8 +20,8 @@ Use LoggerFactory to get a Logger Instance.
 ### How to use it?
 FIRST,import this two classes.
 ```java
-import io.github.bloodnighttw.tinyLogger.LoggerFactory
-import io.github.bloodnighttw.tinyLogger.Logger
+import io.github.bloodnighttw.tinyLogger.LoggerFactory;
+import io.github.bloodnighttw.tinyLogger.Logger;
 ```
 Then,Use LoggerFactory to get a ``Logger`` Instance.
 
