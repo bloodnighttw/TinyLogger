@@ -12,7 +12,7 @@ This libary have 2  major class.
 A Class to generate ``Logger`` Instance.
 ### Logger
 A Class contain ``debug``,``info``,``warm``and``error``,4 methods.
-Each method have defferent usage and 
+Each method have defferent usage and feature!
 
 
 Use LoggerFactory to get a Logger Instance.

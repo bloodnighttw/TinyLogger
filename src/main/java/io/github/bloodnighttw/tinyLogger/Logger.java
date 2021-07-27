@@ -14,7 +14,7 @@ public class Logger {
     private final String DEBUG = TextColor.CYAN_BOLD+"DEBUG"+TextColor.RESET;
     private final boolean debug;
 
-    public Logger(String groupName,boolean debug) {
+    protected Logger(String groupName,boolean debug) {
         this.groupName = groupName;
         this.debug = debug;
     }
