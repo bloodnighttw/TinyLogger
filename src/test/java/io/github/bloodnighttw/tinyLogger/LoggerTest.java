@@ -9,58 +9,56 @@ import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class LoggerFactoryTest {
+public class LoggerTest {
 
     // thank to https://stackoverflow.com/questions/1119385/junit-test-for-system-out-println
-    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut =System.out;
     private final PrintStream originalErr = System.err;
 
     @BeforeEach
     public void setUpStreams() {
-        outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
     }
 
     @Test
     public void loggerInfoTest(){
-        LoggerFactory.installLogger(true,false);
-        Logger logger = LoggerFactory.getLogger("Test");
+        Logger logger = new Logger("Test",true);
         logger.info("test case #1");
         assertTrue(outContent.toString().contains("[Test]["+TextColor.GREEN_BOLD+"INFO"+TextColor.RESET+"]:test case #1\n"));
     }
 
     @Test
     public void loggerWarmTest(){
-        LoggerFactory.installLogger(true,false);
-        Logger logger = LoggerFactory.getLogger("Test");
+        Logger logger = new Logger("Test",true);
         logger.warm("test case #2");
         assertTrue(outContent.toString().contains("[Test]["+TextColor.YELLOW_BOLD+"WARM"+TextColor.RESET+"]:test case #2\n"));
     }
 
+
     @Test
     public void loggerDebugTrue(){
-        LoggerFactory.installLogger(true,false);
-        Logger logger = LoggerFactory.getLogger("Test");
-        logger.debug("test case #3");
 
-        //originalOut.println(outContent.toString());
+        Logger logger = new Logger("Test",true);
+        logger.debug("test case #3");
         assertTrue(outContent.toString().contains("[Test]["+TextColor.CYAN_BOLD+"DEBUG"+TextColor.RESET+"]"));
     }
 
     @Test
+    public void  loggerDebugFalse(){
+        Logger logger = new Logger("Test",false);
+        logger.debug("test case #4");
+        assertEquals("",outContent.toString());
+
+    }
+
+    @Test
     public void loggerError(){
-        LoggerFactory.installLogger(true,false);
-        Logger logger = LoggerFactory.getLogger("Test");
+        Logger logger = new Logger("Test",true);
         logger.error("t");
         assertTrue(errContent.toString().contains("[Test]["+TextColor.RED_BOLD+"ERROR"+TextColor.RESET+"]:t\n"));
     }
-
-
-
-
-
 
 }
