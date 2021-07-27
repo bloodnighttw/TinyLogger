@@ -2,12 +2,7 @@ package io.github.bloodnighttw.tinyLogger;
 
 import org.junit.jupiter.api.Test;
 
-import java.text.SimpleDateFormat;
-
-public class PrintTest {
-
-    private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-    private final String format = "[%s][%s][%s]:%s\n";
+public class PrintShow {
 
     @Test
     void print(){
