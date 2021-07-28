@@ -31,7 +31,4 @@ class LoggerFilePrintStreamTest {
         ps.close();
     }
 
-
-
-
 }
