@@ -1,10 +1,21 @@
 package io.github.bloodnighttw.tinyLogger;
 
+import io.github.bloodnighttw.tinyLogger.PrintStream.LoggerFilePrintStream;
+import io.github.bloodnighttw.tinyLogger.PrintStream.LoggerPrintStream;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public final class LoggerFactory {
 
     /*  TODO (ESSENTIAL)
      *  1.Logger with different mode [DONE]
-     *  2.Log File
+     *  2.Log File [Done]
      *  3.Color text [DONE]
      *  4.Group [DONE]
      *
@@ -22,7 +33,6 @@ public final class LoggerFactory {
     private static boolean hasInstalled = false;
     private static Logger logger ;
     private static boolean debug;
-    private static boolean logfile;
 
     public static void installLogger(boolean debug2,boolean logfile1){
         if(hasInstalled){
@@ -31,9 +41,20 @@ public final class LoggerFactory {
         }
 
         debug = debug2;
-        logfile = logfile1;
         hasInstalled = true;
-        System.setOut(new LoggerPrintStream(System.out));
+
+
+        if(logfile1) {
+            File file = new File(new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date())+".log");
+            try {
+                System.setOut(new LoggerFilePrintStream(System.out, new PrintStream(new BufferedOutputStream(new FileOutputStream(file)), true)));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+        }
+        else
+            System.setOut(new LoggerPrintStream(System.out));
         logger = LoggerFactory.getLogger("TinyLogger");
     }
 

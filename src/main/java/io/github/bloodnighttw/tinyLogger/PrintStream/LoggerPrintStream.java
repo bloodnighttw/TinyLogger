@@ -1,4 +1,7 @@
-package io.github.bloodnighttw.tinyLogger;
+package io.github.bloodnighttw.tinyLogger.PrintStream;
+
+import io.github.bloodnighttw.tinyLogger.Logger;
+import io.github.bloodnighttw.tinyLogger.LoggerFactory;
 
 import java.io.PrintStream;
 import java.util.Locale;
@@ -7,6 +10,7 @@ public class LoggerPrintStream extends PrintStream {
 
     private final PrintStream originalPrintStream;
     private final Logger logger;
+
 
 
     public LoggerPrintStream(PrintStream originalPrintStream1) {

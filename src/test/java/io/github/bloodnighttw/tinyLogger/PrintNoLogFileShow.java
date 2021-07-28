@@ -2,7 +2,7 @@ package io.github.bloodnighttw.tinyLogger;
 
 import org.junit.jupiter.api.Test;
 
-public class PrintShow {
+public class PrintNoLogFileShow {
 
     @Test
     void print(){
