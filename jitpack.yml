@@ -1,2 +1,2 @@
 install:
- - chmod +x gradlew && ./gradlew build :lib:publishToMavenLocal
+ - chmod +x gradlew && ./gradlew build :lib:publishToMavenLocal --debug --info
