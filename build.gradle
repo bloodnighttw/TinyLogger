@@ -1,16 +1,16 @@
 plugins {
     id 'java'
     id 'maven-publish'
+    id 'maven'
 }
 
 group 'com.github.bloodnighttw'
 version 'v0.0.0'
 
 
-
-
 repositories {
     mavenCentral()
+    //maven { url "https://jitpack.io" }
 }
 
 dependencies {
@@ -33,9 +33,22 @@ artifacts {
     archives javadocJar
 }
 
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+        }
+    }
+}
 
 wrapper {
-    gradleVersion = "6.1.1"
+    gradleVersion = "7.1.1"
     distributionType = Wrapper.DistributionType.ALL
 }
 
