@@ -48,7 +48,7 @@ install {
 }
 
 wrapper {
-    gradleVersion = "6.8"
+    gradleVersion = "6.7"
     distributionType = Wrapper.DistributionType.ALL
 }
 
