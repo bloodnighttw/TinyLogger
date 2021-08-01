@@ -37,7 +37,7 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/bloodnighttw/TinyLogger")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                username = 'bloodnighttw'
                 password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
             }
         }
