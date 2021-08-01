@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.github.bloodnighttw'
-version 'v0.0.0'
+version 'v0.0.2'
 
 
 repositories {
