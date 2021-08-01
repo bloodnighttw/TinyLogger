@@ -6,10 +6,14 @@ plugins {
 group 'com.github.bloodnighttw'
 version 'v0.0.0'
 
+
+
+
 repositories {
     mavenCentral()
-    maven { url "https://jitpack.io" }
 }
+
+
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
@@ -31,26 +35,9 @@ artifacts {
     archives javadocJar
 }
 
-publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/bloodnighttw/TinyLogger")
-            credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("bloodnighttw")
-                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
-            }
-        }
-    }
-    publications {
-        gpr(MavenPublication) {
-            from(components.java)
-        }
-    }
-}
 
 wrapper {
-    gradleVersion = "7.1.1"
+    gradleVersion = "6.4.1"
     distributionType = Wrapper.DistributionType.ALL
 }
 
