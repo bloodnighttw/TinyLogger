@@ -10,7 +10,7 @@ version 'v0.0.0'
 
 repositories {
     mavenCentral()
-    //maven { url "https://jitpack.io" }
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
