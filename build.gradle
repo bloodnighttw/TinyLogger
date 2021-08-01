@@ -1,12 +1,10 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id 'maven'
 }
 
 group 'com.github.bloodnighttw'
-version 'v0.0.2'
-
+version 'v0.0.0'
 
 repositories {
     mavenCentral()
@@ -33,22 +31,26 @@ artifacts {
     archives javadocJar
 }
 
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/bloodnighttw/TinyLogger")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
             }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
         }
     }
 }
 
 wrapper {
-    gradleVersion = "6.7"
+    gradleVersion = "7.1.1"
     distributionType = Wrapper.DistributionType.ALL
 }
 
